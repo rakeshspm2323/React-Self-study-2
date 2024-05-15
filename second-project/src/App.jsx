@@ -1,23 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react'
 import './App.css'
-import Card from './components/Card'
+const App = () => {
+  const [count,setCount] = useState(0)
+  let add = ()=>{
 
-function App() {
-  const [count, setCount] = useState(0)
-  // let obj = {
-  //   name:'Rakesh',
-  //   age:23,
-  //   city:'Noida',
-  //   state:'UP'
-  // }
+   /* setCount( (count)=>count+1)
+    setCount( (count)=>count+1)
+    setCount( (count)=>count+1)
+    setCount( (count)=>count+1) --> update by 4 at once */
 
+  //   setCount(()=>count+1)
+
+  setCount(count+1)
+
+  }
+  let remove =()=>{
+    //  if(count>0)
+      setCount(()=>count-1)
+    }
+    let reset = ()=>{
+      setCount(0)
+    }
   return (
     <>
-       {/* <Card user='Rakesh' myObj={obj} ></Card>  */}
-      <Card userName='Divya' btnText='Click me!'></Card>
-      <Card userName='Sapana' btnText='Visit'></Card>
+      <h3 className='font-semibold'>Count is:{count}</h3>
+      <button className='px-1 py-4 font-bold mr-4' onClick={add}>Increment</button>
+      <button className='px-1 py-4 font-bold m-6'onClick={remove}>Decrement</button>
+      <button className='px-1 py-4 font-bold'onClick={reset}>Reset</button>
     </>
   )
 }
